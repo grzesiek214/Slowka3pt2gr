@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private Button generateBtn;
 
 
-
+    private String generateWord() {
+        int size = words.size();
+        Random rnd = new Random();
+        int random = rnd.nextInt(0, size - 1);
+        Word word = words.get(random);
+        return word.getWord();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,18 @@ public class MainActivity extends AppCompatActivity {
         deBtn = findViewById(R.id.btnDeuth);
         plBtn = findViewById(R.id.btnPolski);
         enBtn = findViewById(R.id.generate);
+
+        words.add(new Word("Hola", 1));
+        words.add(new Word("Czesc", 3));
+        words.add(new Word("Hi", 0));
+        words.add(new Word("Halo", 2));
+        words.add(new Word("Manzana", 1));
+        words.add(new Word("Jablko", 3));
+        words.add(new Word("Apfel", 2));
+        words.add(new Word("Apple", 0));
+
+
+
 
 
 
