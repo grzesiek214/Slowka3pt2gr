@@ -1,8 +1,6 @@
 package com.example.slowka;
 
-import java.util.ArrayList;
-
-public class Word {
+public class Slowo {
     private String word;
 
     private int correctLang; // 0 english  1 spanish 2 deutsch 3 polish
@@ -15,7 +13,7 @@ public class Word {
         return correctLang;
     }
 
-    public Word(String word, int correctLang) {
+    public Slowo(String word, int correctLang) {
         this.word = word;
         this.correctLang = correctLang;
     }

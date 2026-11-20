@@ -16,7 +16,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
 
-    private ArrayList<Word> words =  new ArrayList<>();
+    private ArrayList<Slowo> words =  new ArrayList<>();
 
     private TextView text;
     private Button enBtn;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         int size = words.size();
         Random rnd = new Random();
         int random = rnd.nextInt(0, size - 1);
-        Word word = words.get(random);
+        Slowo word = words.get(random);
         return word.getWord();
     }
 
@@ -51,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
         plBtn = findViewById(R.id.btnPolski);
         enBtn = findViewById(R.id.generate);
 
-        words.add(new Word("Hola", 1));
-        words.add(new Word("Czesc", 3));
-        words.add(new Word("Hi", 0));
-        words.add(new Word("Halo", 2));
-        words.add(new Word("Manzana", 1));
-        words.add(new Word("Jablko", 3));
-        words.add(new Word("Apfel", 2));
-        words.add(new Word("Apple", 0));
+        words.add(new Slowo("Hola", 1));
+        words.add(new Slowo("Czesc", 3));
+        words.add(new Slowo("Hi", 0));
+        words.add(new Slowo("Halo", 2));
+        words.add(new Slowo("Manzana", 1));
+        words.add(new Slowo("Jablko", 3));
+        words.add(new Slowo("Apfel", 2));
+        words.add(new Slowo("Apple", 0));
 
 
 
