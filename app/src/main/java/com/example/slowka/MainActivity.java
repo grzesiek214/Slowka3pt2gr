@@ -1,5 +1,6 @@
 package com.example.slowka;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,8 +16,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private ArrayList<Slowo> words =  new ArrayList<>();
+    private Random rand = new Random();
+    private ArrayList<Slowo> slowa =  new ArrayList<>();
+    private Slowo aktualneSlowo;
 
     private TextView text;
     private Button enBtn;
@@ -26,12 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private Button generateBtn;
 
 
-    private String generateWord() {
-        int size = words.size();
-        Random rand = new Random();
-        int random = rand.nextInt(0, size - 1);
-        Slowo word = words.get(random);
-        return word.getWord();
+    private Slowo generateWord() {
+        int rozmiar = slowa.size();
+        int random = rand.nextInt(0, rozmiar-1);
+        return slowa.get(random);
     }
 
     @Override
@@ -49,15 +49,21 @@ public class MainActivity extends AppCompatActivity {
         esBtn = findViewById(R.id.btnSpanish);
         deBtn = findViewById(R.id.btnDeuth);
         plBtn = findViewById(R.id.btnPolski);
-        enBtn = findViewById(R.id.generate);
+        generateBtn = findViewById(R.id.generate);
+        text = findViewById(R.id.text);
 
-        words.add(new Slowo("Hola", Jezyk.HISZPANSKI));
-        words.add(new Slowo("Czesc", Jezyk.POLSKI));
-        words.add(new Slowo("Hi", Jezyk.ANGIELSKI));
-        words.add(new Slowo("Halo", Jezyk.NIEMIECKI));
-        words.add(new Slowo("Manzana", Jezyk.HISZPANSKI));
-        words.add(new Slowo("Jablko", Jezyk.POLSKI));
-        words.add(new Slowo("Apfel", Jezyk.NIEMIECKI));
-        words.add(new Slowo("Apple", Jezyk.ANGIELSKI));
+        slowa.add(new Slowo("Hola", Jezyk.HISZPANSKI));
+        slowa.add(new Slowo("Czesc", Jezyk.POLSKI));
+        slowa.add(new Slowo("Hi", Jezyk.ANGIELSKI));
+        slowa.add(new Slowo("Halo", Jezyk.NIEMIECKI));
+        slowa.add(new Slowo("Manzana", Jezyk.HISZPANSKI));
+        slowa.add(new Slowo("Jablko", Jezyk.POLSKI));
+        slowa.add(new Slowo("Apfel", Jezyk.NIEMIECKI));
+        slowa.add(new Slowo("Apple", Jezyk.ANGIELSKI));
+
+        generateBtn.setOnClickListener(view -> {
+            aktualneSlowo = generateWord();
+            text.setText(aktualneSlowo.getWord());
+        });
     }
 }
