@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String generateWord() {
         int size = words.size();
-        Random rnd = new Random();
-        int random = rnd.nextInt(0, size - 1);
+        Random rand = new Random();
+        int random = rand.nextInt(0, size - 1);
         Slowo word = words.get(random);
         return word.getWord();
     }
@@ -51,19 +51,13 @@ public class MainActivity extends AppCompatActivity {
         plBtn = findViewById(R.id.btnPolski);
         enBtn = findViewById(R.id.generate);
 
-        words.add(new Slowo("Hola", 1));
-        words.add(new Slowo("Czesc", 3));
-        words.add(new Slowo("Hi", 0));
-        words.add(new Slowo("Halo", 2));
-        words.add(new Slowo("Manzana", 1));
-        words.add(new Slowo("Jablko", 3));
-        words.add(new Slowo("Apfel", 2));
-        words.add(new Slowo("Apple", 0));
-
-
-
-
-
-
+        words.add(new Slowo("Hola", Jezyk.HISZPANSKI));
+        words.add(new Slowo("Czesc", Jezyk.POLSKI));
+        words.add(new Slowo("Hi", Jezyk.ANGIELSKI));
+        words.add(new Slowo("Halo", Jezyk.NIEMIECKI));
+        words.add(new Slowo("Manzana", Jezyk.HISZPANSKI));
+        words.add(new Slowo("Jablko", Jezyk.POLSKI));
+        words.add(new Slowo("Apfel", Jezyk.NIEMIECKI));
+        words.add(new Slowo("Apple", Jezyk.ANGIELSKI));
     }
 }

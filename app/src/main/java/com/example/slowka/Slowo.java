@@ -3,18 +3,18 @@ package com.example.slowka;
 public class Slowo {
     private String word;
 
-    private int correctLang; // 0 english  1 spanish 2 deutsch 3 polish
+    private Jezyk prawidlowyJezyk;
 
     public String getWord() {
         return word;
     }
 
-    public int getCorrectLang() {
-        return correctLang;
+    public Jezyk getPrawidlowyJezyk() {
+        return prawidlowyJezyk;
     }
 
-    public Slowo(String word, int correctLang) {
+    public Slowo(String word, Jezyk jezyk) {
         this.word = word;
-        this.correctLang = correctLang;
+        this.prawidlowyJezyk = jezyk;
     }
 }
